@@ -11,40 +11,38 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.movieapp.ui.AddMoviesScreen
+import com.example.mymovieapplication.data.HomeScreen
 
 @Composable
-fun MainScreen(viewModel: MovieViewModel) {
-    val navController = rememberNavController()
-    NavHost(navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController) }
-        composable("add_movies") { AddMoviesScreen(viewModel) }
-        composable("search_movie") { SearchMovieScreen() }
-        composable("search_actor") { SearchActorScreen() }
-        composable("web_search") { WebSearchScreen() }
-    }
-}
-
-@Composable
-fun HomeScreen(navController: NavHostController) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
-        horizontalAlignment = Alignment.CenterHorizontally
+fun MainScreen(
+    navController: NavHostController = rememberNavController(),
+    viewModel: MovieViewModel = hiltViewModel()
+) {
+    NavHost(
+        navController = navController,
+        startDestination = "home"
     ) {
-        Button(onClick = { navController.navigate("add_movies") }) {
-            Text("Add Movies to DB")
+        composable("home") {
+            HomeScreen(
+                onAddMoviesClick = { navController.navigate("add_movies") },
+                onSearchMovieClick = { navController.navigate("search_movie") },
+                onSearchActorClick = { navController.navigate("search_actor") },
+                onWebSearchClick = { navController.navigate("web_search") }
+            )
         }
-        Button(onClick = { navController.navigate("search_movie") }) {
-            Text("Search for Movies")
+        composable("add_movies") {
+            AddMoviesScreen(viewModel)
         }
-        Button(onClick = { navController.navigate("search_actor") }) {
-            Text("Search for Actors")
+        composable("search_movie") {
+            SearchMovieScreen() //viewModel
         }
-        Button(onClick = { navController.navigate("web_search") }) {
-            Text("Web Search")
+        composable("search_actor") {
+            SearchActorScreen() //viewModel
+        }
+        composable("web_search") {
+            WebSearchScreen() //viewModel
         }
     }
 }
