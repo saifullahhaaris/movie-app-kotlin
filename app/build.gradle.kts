@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.hilt.android)   // Add this
-    alias(libs.plugins.kotlin.kapt) // Add this for Room
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -39,6 +39,9 @@ android {
     buildFeatures {
         compose = true
     }
+//    debug {
+//        buildConfigField("String", "OMDB_API_KEY", "\"${project.properties['omdbApiKey'] ?: ''}\"")
+//    }
 }
 
 dependencies {
@@ -79,7 +82,7 @@ dependencies {
     // Material (for Theme)
     implementation(libs.androidx.material)
 
-    // If you're using Material3 in Compose
+    // Material3 in Compose
     implementation(libs.androidx.material3)
 
     // Hilt
