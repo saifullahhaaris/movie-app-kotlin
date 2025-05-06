@@ -2,12 +2,13 @@ package com.example.mymovieapplication.data
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE) // toPrevent duplicate key errors
     suspend fun insertMovie(movie: MovieEntity)
 
     @Query("SELECT * FROM movies WHERE actors LIKE '%' || :query || '%' COLLATE NOCASE")

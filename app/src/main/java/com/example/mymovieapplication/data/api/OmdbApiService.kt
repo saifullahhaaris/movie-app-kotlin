@@ -8,12 +8,12 @@ interface OmdbApiService {
     @GET("/")
     suspend fun searchMovie(
         @Query("t") title: String,
-        @Query("apikey") apiKey: String = "b1bd51b2" // Your API key
+        @Query("apikey") apiKey: String = "b1bd51b2"
     ): MovieEntity
 
     @GET("/")
     suspend fun searchMoviesByTitle(
         @Query("s") query: String,
-        @Query("apikey") apiKey: String = "b1bd51b2" // Your API key
+        @Query("apikey") apiKey: String = "b1bd51b2"
     ): SearchResponse
 }
