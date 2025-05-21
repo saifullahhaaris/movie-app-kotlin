@@ -26,21 +26,24 @@ Movie Explorer is an Android application built with Kotlin and Jetpack Compose t
 
 See the application in action! A video showcasing all the features is available on YouTube:
 
-[**youtube video comming soon**]
+> **youtube demo comming soon**
 
 ## Setup
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/saifullahhaaris/movie-app-kotlin/
-    ```
-2.  **Open the project in Android Studio.**
-3.  **Obtain an OMDb API Key:**
-    * Visit [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) to get your free API key.
-    * Create a `local.properties` file in the root of your project if it doesn't exist.
-    * Add your API key to `local.properties` like this:
-        ```properties
-        omdbApiKey="YOUR_ACTUAL_OMDB_API_KEY"
-        ```
-4.  **Run the application** on an Android emulator or a physical device.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/saifullahhaaris/movie-app-kotlin/
+   ```
+
+2. **Open the project in Android Studio.**
+
+3. **Obtain an OMDb API Key:**
+   * Visit [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx) to get your free API key.
+   * Create a `local.properties` file in the root of your project if it doesn't exist.
+   * Add your API key to `local.properties` like this:
+     ```properties
+     omdbApiKey="YOUR_ACTUAL_OMDB_API_KEY"
+     ```
+
+4. **Run the application** on an Android emulator or a physical device.
 
